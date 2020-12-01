@@ -1,0 +1,18 @@
+do $do$
+declare
+stars int[] :=  array(select cola from adventofcode.day01data dd);
+a int;
+b int;  
+begin
+	<<outer_loop>>
+    FOREACH a IN array stars loop
+        <<inner_loop>>
+        FOREACH b in array stars loop 
+            if a + b = 2020 then
+                raise notice 'sumIs: % ', a*b ;
+                exit outer_loop; 
+            end if ;
+        end loop inner_loop; 
+    end loop outer_loop;
+null ; 
+end $do$ ; 
